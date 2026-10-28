@@ -1,0 +1,468 @@
+/* =========================================
+   VARIABLES Y RESETEO
+========================================= */
+:root {
+  --bg-dark: #0f1014;
+  --bg-card: rgba(26, 28, 35, 0.7);
+  --neon-green: #39ff14;
+  --text-main: #ffffff;
+  --text-muted: #8b8d97;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', system-ui, sans-serif;
+}
+
+body {
+    background-color: var(--bg-dark);
+    color: var(--text-main);
+    line-height: 1.6;
+    overflow-x: hidden;
+    background-image: 
+        linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+    background-size: 40px 40px;
+    position: relative;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* =========================================
+   ORBES DE LUZ
+========================================= */
+.glow-orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(120px);
+    z-index: -1;
+    opacity: 0.3;
+}
+
+.orb-1 {
+    width: 400px;
+    height: 400px;
+    background: var(--neon-green);
+    top: -100px;
+    left: -100px;
+}
+
+.orb-2 {
+    width: 500px;
+    height: 500px;
+    background: #0055ff;
+    top: 60%;
+    right: -200px;
+}
+
+/* =========================================
+   NAVEGACIÓN (HEADER)
+========================================= */
+.site-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 5%;
+    background-color: rgba(15, 16, 20, 0.85);
+    backdrop-filter: blur(15px);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 100;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 800;
+    letter-spacing: 1px;
+}
+
+.logo span {
+    color: var(--neon-green);
+}
+
+.main-nav {
+    display: flex;
+    gap: 30px;
+    align-items: center;
+}
+
+.main-nav a {
+    font-weight: 500;
+    transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+.main-nav a:hover {
+    color: var(--neon-green);
+    text-shadow: 0 0 10px rgba(57, 255, 20, 0.5);
+}
+
+.menu-btn {
+    display: none;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+/* =========================================
+   BOTONES
+========================================= */
+.btn-neon, .btn-primary, .btn-outline, .btn-whatsapp {
+    padding: 12px 24px;
+    border-radius: 4px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+    display: inline-block;
+}
+
+/* 1. Botón de arriba a la derecha (NEÓN / Transparente) */
+.btn-neon {
+    border: 1px solid var(--neon-green);
+    color: var(--neon-green);
+    background: transparent !important;
+}
+
+.btn-neon:hover {
+    background: rgba(57, 255, 20, 0.1) !important;
+    color: var(--neon-green);
+    box-shadow: 0 0 20px rgba(57, 255, 20, 0.5), inset 0 0 10px rgba(57, 255, 20, 0.3);
+    text-shadow: 0 0 5px var(--neon-green);
+    transform: translateY(-2px);
+}
+
+/* 2. Botón principal verde (Hero) */
+.btn-primary {
+    background: var(--neon-green);
+    color: var(--bg-dark);
+}
+
+.btn-primary:hover {
+    box-shadow: 0 0 25px rgba(57, 255, 20, 0.6);
+    transform: translateY(-3px);
+}
+
+.btn-outline {
+    border: 1px solid var(--text-muted);
+    color: var(--text-main);
+}
+
+.btn-outline:hover {
+    border-color: var(--text-main);
+    background: rgba(255,255,255,0.05);
+}
+
+/* 3. Botón de WhatsApp (VERDE OFICIAL RESTAURADO) */
+.btn-whatsapp {
+    background-color: #25D366 !important; /* Forzamos su verde original */
+    color: #0f1014 !important; /* Texto oscuro para que contraste perfecto */
+    margin-top: 20px;
+    border: none;
+}
+
+.btn-whatsapp:hover {
+    background-color: #20ba5a !important;
+    box-shadow: 0 0 20px rgba(37, 211, 102, 0.6);
+    transform: translateY(-3px);
+}
+/* =========================================
+   HERO SECTION
+========================================= */
+.hero {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    padding: 120px 5% 50px;
+    gap: 50px;
+}
+
+.hero-content .badge {
+    color: var(--neon-green);
+    font-size: 0.9rem;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 15px;
+    text-shadow: 0 0 10px rgba(57, 255, 20, 0.4);
+}
+
+.hero-content h1 {
+    font-size: 4rem;
+    line-height: 1.1;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+}
+
+.hero-content p {
+    color: var(--text-muted);
+    font-size: 1.1rem;
+    margin-bottom: 30px;
+    max-width: 450px;
+}
+
+.hero-actions {
+    display: flex;
+    gap: 15px;
+}
+
+.hero-image {
+    perspective: 1000px;
+}
+
+.hero-image img {
+    width: 100%;
+    border-radius: 12px;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.8);
+    min-height: 400px;
+    object-fit: cover;
+    border: 1px solid rgba(255,255,255,0.05);
+    transition: transform 0.1s ease-out;
+}
+
+/* =========================================
+   SERVICIOS
+========================================= */
+.services-section {
+    padding: 100px 5%;
+    position: relative;
+    z-index: 2;
+}
+
+.services-section h2 {
+    font-size: 2.5rem;
+    margin-bottom: 50px;
+    text-align: center;
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.service-card {
+    background: var(--bg-card);
+    padding: 40px 30px;
+    border-radius: 12px;
+    border: 1px solid rgba(255,255,255,0.05);
+    backdrop-filter: blur(10px);
+    transition: transform 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease;
+}
+
+.service-card:hover {
+    transform: translateY(-10px);
+    border-color: rgba(57, 255, 20, 0.4);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.5), 0 0 20px rgba(57, 255, 20, 0.1);
+}
+
+.service-card .icon {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    display: inline-block;
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.service-card:hover .icon {
+    transform: scale(1.1) translateY(-5px);
+    filter: drop-shadow(0 0 8px var(--neon-green));
+}
+
+.service-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+}
+
+.service-card p {
+    color: var(--text-muted);
+}
+
+/* =========================================
+   VENTAJAS (FEATURES) Y FOTO MOTOR
+========================================= */
+.features-section {
+    padding: 100px 5%;
+    background: linear-gradient(to right, rgba(26, 28, 35, 0.8), rgba(15, 16, 20, 0.8));
+    border-top: 1px solid rgba(255,255,255,0.02);
+    border-bottom: 1px solid rgba(255,255,255,0.02);
+    position: relative;
+    z-index: 2;
+}
+
+/* ACÁ ESTÁ LA SOLUCIÓN: El contenedor de 2 columnas */
+.features-content {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    gap: 60px;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.features-text h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+.features-text p {
+    color: var(--text-muted);
+    margin-bottom: 30px;
+}
+
+.check-list {
+    list-style: none;
+}
+
+.check-list li {
+    margin-bottom: 15px;
+    position: relative;
+    padding-left: 30px;
+    font-weight: 500;
+}
+
+.check-list li::before {
+    content: '✔';
+    color: var(--neon-green);
+    position: absolute;
+    left: 0;
+    text-shadow: 0 0 5px var(--neon-green);
+}
+
+.features-image img {
+    width: 100%;
+    max-width: 400px; /* Tamaño controlado */
+    margin-left: auto;
+    display: block;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
+    border: 1px solid rgba(57, 255, 20, 0.2);
+    
+    filter: grayscale(60%) brightness(0.8);
+    transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.features-image img:hover {
+    filter: grayscale(0%) brightness(1.1);
+    transform: scale(1.05) rotate(-2deg);
+    border-color: var(--neon-green);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.9), 0 0 30px rgba(57, 255, 20, 0.3);
+}
+
+/* =========================================
+   CTA / FOOTER
+========================================= */
+.cta-section {
+    padding: 100px 5%;
+    text-align: center;
+}
+
+.cta-box {
+    background: var(--bg-card);
+    padding: 60px 20px;
+    border-radius: 12px;
+    border-top: 4px solid var(--neon-green);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.cta-box h2 {
+    font-size: 2rem;
+    margin-bottom: 15px;
+}
+
+.site-footer {
+    text-align: center;
+    padding: 30px 5%;
+    border-top: 1px solid rgba(255,255,255,0.05);
+    color: var(--text-muted);
+    font-size: 0.9rem;
+}
+
+/* =========================================
+   RESPONSIVE (MÓVIL Y TABLET)
+========================================= */
+@media (max-width: 900px) {
+    .hero {
+        grid-template-columns: 1fr;
+        text-align: center;
+        padding-top: 120px;
+        gap: 30px;
+    }
+    
+    .hero-content h1 {
+        font-size: 2.5rem;
+        margin-bottom: 15px;
+    }
+    
+    .hero-content p {
+        margin: 0 auto 20px;
+        font-size: 1rem;
+        padding: 0 10px;
+    }
+
+    .hero-actions {
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    .hero-image img {
+        min-height: 250px;
+    }
+
+    .menu-btn {
+        display: block;
+    }
+
+    .main-nav {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        background: var(--bg-dark);
+        padding: 30px 0;
+        border-bottom: 1px solid rgba(255,255,255,0.05);
+        box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+    }
+
+    .main-nav.active {
+        display: flex;
+    }
+
+    .services-section, .features-section, .cta-section {
+        padding: 60px 5%;
+    }
+
+    .services-section h2, .features-text h2, .cta-box h2 {
+        font-size: 2rem;
+    }
+    
+    .services-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    }
+
+    /* ACÁ ESTÁ LA MAGIA PARA EL CELULAR: Pasa a 1 sola columna */
+    .features-content {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .features-image img {
+        margin: 0 auto; /* Centra la imagen en el celular */
+    }
+}
