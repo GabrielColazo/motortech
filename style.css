@@ -21,11 +21,12 @@ body {
     color: var(--text-main);
     line-height: 1.6;
     overflow-x: hidden;
+    width: 100%;
+    position: relative;
     background-image: 
         linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
         linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
     background-size: 40px 40px;
-    position: relative;
 }
 
 a {
@@ -42,6 +43,8 @@ a {
     filter: blur(120px);
     z-index: -1;
     opacity: 0.3;
+    max-width: 100vw;
+    pointer-events: none;
 }
 
 .orb-1 {
@@ -61,7 +64,7 @@ a {
 }
 
 /* =========================================
-   NAVEGACIÓN (HEADER)
+   NAVEGACIÓN (HEADER) Y LOGO PRO
 ========================================= */
 .site-header {
     display: flex;
@@ -77,27 +80,20 @@ a {
     border-bottom: 1px solid rgba(255,255,255,0.05);
 }
 
-/* =========================================
-   LOGO ESTILIZADO (MODO PRO)
-========================================= */
 .logo {
-    font-size: 1.6rem;
-    font-weight: 950;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 2.2rem;
+    font-weight: 400;
     letter-spacing: 2px;
     text-transform: uppercase;
     position: relative;
     display: inline-block;
     transition: transform 0.3s ease;
-}
-
-/* La palabra MOTOR con un degradé sutil de gris a blanco plata */
-.logo {
     background: linear-gradient(135deg, #ffffff 40%, #8b8d97 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
-/* La palabra TECH en verde neón vibrante con resplandor */
 .logo span {
     background: none;
     -webkit-text-fill-color: initial;
@@ -106,7 +102,6 @@ a {
     transition: text-shadow 0.3s ease;
 }
 
-/* Efecto al pasar el mouse por encima del logo */
 .logo:hover {
     transform: scale(1.03);
 }
@@ -114,6 +109,7 @@ a {
 .logo:hover span {
     text-shadow: 0 0 20px rgba(57, 255, 20, 0.8), 0 0 30px rgba(57, 255, 20, 0.4);
 }
+
 .main-nav {
     display: flex;
     gap: 30px;
@@ -153,7 +149,6 @@ a {
     display: inline-block;
 }
 
-/* 1. Botón de arriba a la derecha (NEÓN / Transparente) */
 .btn-neon {
     border: 1px solid var(--neon-green);
     color: var(--neon-green);
@@ -168,7 +163,6 @@ a {
     transform: translateY(-2px);
 }
 
-/* 2. Botón principal verde (Hero) */
 .btn-primary {
     background: var(--neon-green);
     color: var(--bg-dark);
@@ -189,10 +183,9 @@ a {
     background: rgba(255,255,255,0.05);
 }
 
-/* 3. Botón de WhatsApp (VERDE OFICIAL RESTAURADO) */
 .btn-whatsapp {
-    background-color: #25D366 !important; /* Forzamos su verde original */
-    color: #0f1014 !important; /* Texto oscuro para que contraste perfecto */
+    background-color: #25D366 !important;
+    color: #0f1014 !important;
     margin-top: 20px;
     border: none;
 }
@@ -202,6 +195,7 @@ a {
     box-shadow: 0 0 20px rgba(37, 211, 102, 0.6);
     transform: translateY(-3px);
 }
+
 /* =========================================
    HERO SECTION
 ========================================= */
@@ -215,9 +209,9 @@ a {
 }
 
 .hero-content .badge {
+    font-family: 'Bebas Neue', sans-serif;
     color: var(--neon-green);
-    font-size: 0.9rem;
-    font-weight: 600;
+    font-size: 1.2rem;
     letter-spacing: 2px;
     text-transform: uppercase;
     display: block;
@@ -226,10 +220,12 @@ a {
 }
 
 .hero-content h1 {
-    font-size: 4rem;
-    line-height: 1.1;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 5.5rem; /* Título principal imponente */
+    line-height: 0.95;
     margin-bottom: 20px;
     text-transform: uppercase;
+    letter-spacing: 2px;
 }
 
 .hero-content p {
@@ -268,7 +264,9 @@ a {
 }
 
 .services-section h2 {
-    font-size: 2.5rem;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 3.5rem;
+    letter-spacing: 2px;
     margin-bottom: 50px;
     text-align: center;
 }
@@ -307,7 +305,9 @@ a {
 }
 
 .service-card h3 {
-    font-size: 1.5rem;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 2rem;
+    letter-spacing: 1px;
     margin-bottom: 15px;
 }
 
@@ -327,7 +327,6 @@ a {
     z-index: 2;
 }
 
-/* ACÁ ESTÁ LA SOLUCIÓN: El contenedor de 2 columnas */
 .features-content {
     display: grid;
     grid-template-columns: 1.5fr 1fr;
@@ -338,7 +337,9 @@ a {
 }
 
 .features-text h2 {
-    font-size: 2.5rem;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 3.5rem;
+    letter-spacing: 2px;
     margin-bottom: 20px;
 }
 
@@ -368,7 +369,7 @@ a {
 
 .features-image img {
     width: 100%;
-    max-width: 400px; /* Tamaño controlado */
+    max-width: 400px;
     margin-left: auto;
     display: block;
     border-radius: 12px;
@@ -406,7 +407,9 @@ a {
 }
 
 .cta-box h2 {
-    font-size: 2rem;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 2.8rem;
+    letter-spacing: 1.5px;
     margin-bottom: 15px;
 }
 
@@ -430,7 +433,7 @@ a {
     }
     
     .hero-content h1 {
-        font-size: 2.5rem;
+        font-size: 3.8rem; /* Ajustado para pantallas de celular */
         margin-bottom: 15px;
     }
     
@@ -457,14 +460,20 @@ a {
     .main-nav {
         display: none;
         flex-direction: column;
-        position: absolute;
+        position: fixed;
         top: 70px;
         left: 0;
-        width: 100%;
-        background: var(--bg-dark);
-        padding: 30px 0;
+        width: 100vw;
+        height: calc(100vh - 70px);
+        background: rgba(15, 16, 20, 0.98);
+        backdrop-filter: blur(15px);
+        padding: 40px 20px;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 25px;
         border-bottom: 1px solid rgba(255,255,255,0.05);
         box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+        z-index: 99;
     }
 
     .main-nav.active {
@@ -475,21 +484,24 @@ a {
         padding: 60px 5%;
     }
 
-    .services-section h2, .features-text h2, .cta-box h2 {
-        font-size: 2rem;
+    .services-section h2, .features-text h2 {
+        font-size: 2.8rem;
+    }
+
+    .cta-box h2 {
+        font-size: 2.2rem;
     }
     
     .services-grid {
         grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     }
 
-    /* ACÁ ESTÁ LA MAGIA PARA EL CELULAR: Pasa a 1 sola columna */
     .features-content {
         grid-template-columns: 1fr;
         gap: 40px;
     }
 
     .features-image img {
-        margin: 0 auto; /* Centra la imagen en el celular */
+        margin: 0 auto;
     }
 }
