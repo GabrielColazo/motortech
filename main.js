@@ -9,13 +9,22 @@ document.addEventListener("DOMContentLoaded", () => {
       .from(".hero-actions", { y: 20, opacity: 0, duration: 0.5, ease: "power2.out" }, "-=0.3")
       .from(".hero-image", { scale: 0.9, x: 50, opacity: 0, duration: 1, ease: "power3.out" }, "-=1");
 
-    // --- 2. MENÚ MÓVIL ---
+    // --- 2. MENÚ MÓVIL Y CIERRE AUTOMÁTICO ---
     const menuBtn = document.querySelector('.menu-btn');
     const mainNav = document.querySelector('.main-nav');
+    const navLinks = document.querySelectorAll('.main-nav a'); // Capturamos todos los links
 
     if (menuBtn && mainNav) {
+        // Abrir y cerrar al tocar el botón hamburguesa
         menuBtn.addEventListener('click', () => {
             mainNav.classList.toggle('active');
+        });
+
+        // Cerrar menú al tocar CUALQUIER link
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mainNav.classList.remove('active');
+            });
         });
     }
 
@@ -39,17 +48,13 @@ document.addEventListener("DOMContentLoaded", () => {
         scrollObserver.observe(card);
     });
 
-    // --- MAGIA 4: EFECTO PARALLAX EN LA IMAGEN DEL HERO ---
-    // Cuando movés el mouse, la imagen se inclina o se mueve apenas
+    // --- 4. EFECTO PARALLAX EN LA IMAGEN DEL HERO (Solo PC) ---
     const heroImage = document.querySelector(".hero-image img");
     
-    if(heroImage) {
+    if(heroImage && window.innerWidth > 900) {
         document.addEventListener("mousemove", (e) => {
-            // Calculamos el centro de la pantalla
-            const xAxis = (window.innerWidth / 2 - e.pageX) / 40; // Dividido 40 para que sea sutil
+            const xAxis = (window.innerWidth / 2 - e.pageX) / 40;
             const yAxis = (window.innerHeight / 2 - e.pageY) / 40;
-            
-            // Aplicamos la transformación a la foto
             heroImage.style.transform = `translate(${xAxis}px, ${yAxis}px)`;
         });
     }
